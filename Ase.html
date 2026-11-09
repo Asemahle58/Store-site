@@ -1,70 +1,174 @@
-<!doctype html> 
-<html lang="en" >
+<!doctype html>
+<html lang="en">
   <head>
-<meta charset="utf-8">
-    <meta name = "viewport" content = "width=device-with, initial-scale=1"> 
-    <title> Asemahle github demo </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 75px; /* Keeps content below fixed navbar */
+      }
+      .floating-header {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .moving-banner img {
+        height: 320px;
+        object-fit: cover;
+      }
+    </style>
   </head>
-  
-<h1> Ase said fuck world </h1>
+  <body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<div class="card" style="width: 24rem;">
-  <img src="1.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Sex is good </h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style="width: 24rem;">
-  <img src="2.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">R259.99</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+    <!-- Clean Fixed Floating Header -->
+    <header class="navbar navbar-expand-lg fixed-top floating-header px-3 py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-dark" href="#">Store Name</a>
 
-<div class="card" style="width: 24rem;">
-  <img src="3.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">R700</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-lg-center gap-3">
+            <li class="nav-item">
+              <a class="nav-link active fw-medium text-primary" href="#">Kids</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium text-secondary" href="#">Women</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium text-secondary" href="#">Men</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a href="contact.html" class="btn btn-outline-dark btn-sm px-3">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
+    <!-- Moving Images Carousel Banner -->
+    <div class="container my-3">
+      <div id="imageBannerCarousel" class="carousel slide moving-banner rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#imageBannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#imageBannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#imageBannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#imageBannerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#imageBannerCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
 
-<div class="card" style="width: 24rem;">
-  <img src="5.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">R 300</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="1.jpeg" class="d-block w-100" alt="Slide 1">
+          </div>
+          <div class="carousel-item">
+            <img src="2.jpeg" class="d-block w-100" alt="Slide 2">
+          </div>
+          <div class="carousel-item">
+            <img src="3.jpeg" class="d-block w-100" alt="Slide 3">
+          </div>
+          <div class="carousel-item">
+            <img src="4.jpeg" class="d-block w-100" alt="Slide 4">
+          </div>
+          <div class="carousel-item">
+            <img src="5.jpeg" class="d-block w-100" alt="Slide 5">
+          </div>
+        </div>
 
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageBannerCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageBannerCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
 
+    <!-- Main Content Grid -->
+    <main class="container my-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="1.jpeg" class="card-img-top" alt="Item 1">
+            <div class="card-body">
+              <h5 class="card-title">Featured Selection</h5>
+              <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+              <a href="#" class="btn btn-primary w-100">Go somewhere</a>
+            </div>
+          </div>
+        </div>
 
-<div class="card" style="width: 24rem;">
-  <img src="4.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">R600</h5>
-    <h3 class="card-title">R600</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="contact.html" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="2.jpeg" class="card-img-top" alt="Item 2">
+            <div class="card-body">
+              <h5 class="card-title text-success fw-bold">R259.99</h5>
+              <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+              <a href="#" class="btn btn-primary w-100">Go somewhere</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="3.jpeg" class="card-img-top" alt="Item 3">
+            <div class="card-body">
+              <h5 class="card-title text-success fw-bold">R700.00</h5>
+              <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+              <a href="#" class="btn btn-primary w-100">Go somewhere</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="5.jpeg" class="card-img-top" alt="Item 5">
+            <div class="card-body">
+              <h5 class="card-title text-success fw-bold">R300.00</h5>
+              <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+              <a href="#" class="btn btn-primary w-100">Go somewhere</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="4.jpeg" class="card-img-top" alt="Item 4">
+            <div class="card-body">
+              <h5 class="card-title text-success fw-bold">R600.00</h5>
+              <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+              <a href="contact.html" class="btn btn-primary w-100">Contact Us</a>
+            </div>
+          </div>
+        </div>
 
-  
-  
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+      <div class="card text-center rounded-0 border-0 border-top bg-light">
+        <div class="card-header bg-transparent border-0 pt-4">
+          Featured
+        </div>
+        <div class="card-body pb-4">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text text-muted">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-dark btn-sm">Go somewhere</a>
+        </div>
+        <div class="card-footer bg-transparent border-0 text-body-secondary pb-4">
+          2 days ago
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
