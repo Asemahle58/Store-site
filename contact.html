@@ -22,22 +22,63 @@
 
     <div class="container py-5" style="max-width: 500px;">
         <h2 class="text-center mb-4">Get in Touch</h2>
-        <form>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+
+            <!-- Web3Forms Access Key Integration -->
+            <input type="hidden" name="access_key" value="48401b31-7064-45bd-ae03-7af4bfc29fe0">
+            <input type="hidden" name="to_email" value="handsgolden681@gmail.com">
+
             <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
             </div>
+            
             <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="name@example.com">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com" required>
             </div>
+            
             <div class="mb-3">
-                <label class="form-label">Message</label>
-                <textarea class="form-control" rows="4" placeholder="Your message..."></textarea>
+                <label for="message" class="form-label">Message</label>
+                <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your message..." required></textarea>
             </div>
-            <button type="button" class="btn btn-success w-100">Send Message</button>
+
+            <!-- Spam Protection Honeypot -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <button type="submit" id="submitBtn" class="btn btn-success w-100 fw-bold">Send Message</button>
         </form>
+        
+        <!-- Live status confirmation area -->
+        <div id="result" class="mt-3 text-center"></div>
     </div>
 
-</body>
-</html>
+    <script>
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('result');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            // Show sending status
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Sending...";
+            result.innerHTML = '<div class="alert alert-info">Please wait, sending your message...</div>';
+
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = '<div class="alert
