@@ -23,14 +23,11 @@
     <div class="container py-5" style="max-width: 500px;">
         <h2 class="text-center mb-4">Get in Touch</h2>
         
-        <!-- HTML Form configured for Web3Forms -->
         <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
 
-            <!-- REPLACE THE ACCESS KEY BELOW WITH YOUR OWN FREE KEY -->
-            <!-- Get your free access key instantly at https://web3forms.com -->
+            <!-- PASTE YOUR WEB3FORMS ACCESS KEY HERE -->
             <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
 
-            <!-- Hidden field to specify your destination email -->
             <input type="hidden" name="to_email" value="handsgolden681@gmail.com">
 
             <div class="mb-3">
@@ -48,20 +45,20 @@
                 <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your message..." required></textarea>
             </div>
 
-            <!-- Optional: Honeypot spam protection -->
+            <!-- Spam Protection Honeypot -->
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-            <button type="submit" class="btn btn-success w-100 fw-bold">Send Email</button>
+            <button type="submit" id="submitBtn" class="btn btn-success w-100 fw-bold">Send Message</button>
         </form>
         
-        <!-- Success message alert container -->
+        <!-- Live status feedback area -->
         <div id="result" class="mt-3 text-center"></div>
     </div>
 
     <script>
-        // Optional JavaScript to make submission smooth without a full page redirect
         const form = document.getElementById('contactForm');
         const result = document.getElementById('result');
+        const submitBtn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -69,7 +66,10 @@
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
             
-            result.innerHTML = "Sending...";
+            // Visual feedback while sending
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Sending message...";
+            result.innerHTML = '<div class="alert alert-info">Please wait, transmitting your message...</div>';
 
             fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
@@ -82,15 +82,22 @@
                 .then(async (response) => {
                     let jsonResponse = await response.json();
                     if (response.status == 200) {
-                        result.innerHTML = '<div class="alert alert-success">Message sent successfully to your email!</div>';
+                        // Success Confirmation
+                        result.innerHTML = '<div class="alert alert-success fw-bold">✅ Success! Your message has been sent to your email.</div>';
                         form.reset();
                     } else {
-                        result.innerHTML = `<div class="alert alert-danger">${jsonResponse.message}</div>`;
+                        // Error message from API
+                        result.innerHTML = `<div class="alert alert-danger">❌ Error: ${jsonResponse.message}</div>`;
                     }
                 })
                 .catch(error => {
                     console.log(error);
-                    result.innerHTML = '<div class="alert alert-danger">Something went wrong! Please try again.</div>';
+                    result.innerHTML = '<div class="alert alert-danger">❌ Network error! Check your connection and try again.</div>';
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = "Send Message";
                 });
         });
     </script>
