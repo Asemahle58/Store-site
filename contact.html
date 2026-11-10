@@ -38,6 +38,21 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com" required>
             </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Cellphone Number</label>
+                <input 
+                    type="tel" 
+                    name="phone" 
+                    id="phone" 
+                    class="form-control" 
+                    placeholder="e.g. 0676068939" 
+                    pattern="^0[0-9]{9}$" 
+                    maxlength="10" 
+                    title="Please enter a complete 10-digit cellphone number starting with 0" 
+                    required>
+                <div class="form-text text-light opacity-75" style="font-size: 0.85rem;">Must be a full 10-digit mobile number (e.g., 0821234567).</div>
+            </div>
             
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
@@ -61,6 +76,16 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // Client-side validation check for complete 10-digit number
+            const phoneInput = document.getElementById('phone').value.trim();
+            const phoneRegex = /^0[0-9]{9}$/;
+
+            if (!phoneRegex.test(phoneInput)) {
+                result.innerHTML = '<div class="alert alert-warning">⚠️ Please enter a complete 10-digit mobile number starting with 0.</div>';
+                return;
+            }
+
             const formData = new FormData(form);
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
@@ -81,4 +106,21 @@
                 .then(async (response) => {
                     let jsonResponse = await response.json();
                     if (response.status == 200) {
-                        result.innerHTML = '<div class="alert
+                        result.innerHTML = '<div class="alert alert-success fw-bold">✅ Message sent successfully! Check your inbox soon.</div>';
+                        form.reset();
+                    } else {
+                        result.innerHTML = `<div class="alert alert-danger">❌ Error: ${jsonResponse.message}</div>`;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = '<div class="alert alert-danger">❌ Network error! Please try again.</div>';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = "Send Message";
+                });
+        });
+    </script>
+</body>
+</html>
