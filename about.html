@@ -4,7 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - My Web Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Man With Golden Hands Construction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Body padding to prevent content from hiding behind the floating header */
+        body {
+            padding-top: 90px;
+        }
+
+        /* Custom Floating Header Styling */
+        .floating-nav {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 1100px;
+            background: rgba(43, 48, 53, 0.85) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-nav .nav-link {
+            transition: color 0.2s ease;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        .floating-nav .nav-link:hover,
+        .floating-nav .nav-link.active {
+            color: #198754 !important;
+        }
+
+        /* Card Customizations (Matches services.html) */
+        .value-card {
+            background-color: #2b3035;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #198754;
+        }
+
+        /* Guarantee Strip */
+        .stat-box {
+            background-color: rgba(25, 135, 84, 0.08);
+            border: 1px solid rgba(25, 135, 84, 0.25);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+
+    <!-- Floating Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top floating-nav shadow-lg px-3">
+        <div class="container-fluid justify-content-end">
+            <a class="navbar-brand fw-bold text-success me-auto me-lg-3" href="index.html">Golden Hands</a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu Links aligned to the right -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <div class="navbar-nav text-end py-2 py-lg-0 me-2">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link active fw-semibold" href="about.html">About</a>
+                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        
+        <!-- Hero / Brand Story Section -->
+        <div class="text-center mb-5">
+            <span class="badge bg-success bg-opacity-25 text-success rounded-pill px-3 py-2 mb-2 border border-success border-opacity-25">
+                Built on Trust &amp; Precision
+            </span>
+            <h1 class="display-5 fw-bold mb-3">Man With Golden Hands Construction</h1>
+            <p class="text-secondary lead mx-auto" style="max-width: 720px;">
+                We bring master-level craftsmanship, honest pricing, and spotless finishes to every home and commercial property we touch—specializing in reliable plumbing systems and precision tiling that stand the test of time.
+            </p>
+        </div>
+
+        <!-- Quick Trust Highlights -->
+        <div class="row g-3 text-center mb-5">
+            <div class="col-6 col-md-3">
+                <div class="stat-box p-3 h-100">
+                    <h3 class="h4 text-success fw-bold mb-1">100%</h3>
+                    <p class="small text-secondary mb-0">Quality Workmanship</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box p-3 h-100">
+                    <h3 class="h4 text-success fw-bold mb-1">On-Time</h3>
+                    <p class="small text-secondary mb-0">Project Delivery</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box p-3 h-100">
+                    <h3 class="h4 text-success fw-bold mb-1">Clean</h3>
+                    <p class="small text-secondary mb-0">Site Guarantee</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box p-3 h-100">
+                    <h3 class="h4 text-success fw-bold mb-1">Transparent</h3>
+                    <p class="small text-secondary mb-0">Upfront Quotes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Core Pillars Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="value-card shadow p-4 h-100">
+                    <div class="text-success fs-3 fw-bold mb-2">01.</div>
+                    <h3 class="h5 text-light fw-bold mb-2">Attention to Every Detail</h3>
+                    <p class="text-secondary mb-0">
+                        From hidden pipework pressure testing to laser-straight grout lines, we never cut corners. We treat your property with the same care and pride as our own.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card shadow p-4 h-100">
+                    <div class="text-success fs-3 fw-bold mb-2">02.</div>
+                    <h3 class="h5 text-light fw-bold mb-2">Dual-Trade Expertise</h3>
+                    <p class="text-secondary mb-0">
+                        Bathroom and kitchen renovations run smoother when your plumber and tiler work as one unified team—eliminating scheduling delays and costly miscommunication.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card shadow p-4 h-100">
+                    <div class="text-success fs-3 fw-bold mb-2">03.</div>
+                    <h3 class="h5 text-light fw-bold mb-2">Honest, Clear Pricing</h3>
+                    <p class="text-secondary mb-0">
+                        No hidden surprises or unexplained add-ons. You receive a clear breakdown of materials and labor before a single tile is laid or pipe is fitted.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Banner (Matches services.html) -->
+        <div class="text-center p-5 rounded-4 bg-secondary bg-opacity-10 border border-secondary border-opacity-25">
+            <h3 class="fw-bold mb-3">Planning a Renovation or Repair?</h3>
+            <p class="text-secondary mx-auto mb-4" style="max-width: 580px;">
+                Explore our specialized plumbing and tiling solutions or reach out directly to book a site inspection and free quote.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-success btn-lg px-4 fw-bold shadow">Request a Quote</a>
+                <a href="services.html" class="btn btn-outline-light btn-lg px-4">View Our Services</a>
+            </div>
+        </div>
+    
+">
     <style>
         /* Body padding to prevent content from hiding behind the floating header */
         body {
